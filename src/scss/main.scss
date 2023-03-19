@@ -1,8 +1,207 @@
-* {
-  margin: 0;
-  padding: 0;
+@import "abstract/mixins";
+@import "abstract/variables";
+
+@import "base/base";
+@import "base/typography";
+
+.bg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-html {
-  font-family: Arial, Helvetica, sans-serif;
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 1;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.main-container {
+  max-width: 120rem;
+  height: 68rem;
+  background-color: rgba(228, 250, 255, 0.5);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+  border-radius: 3.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  overflow: hidden;
+  padding: 1.6rem;
+  padding-left: 3.2rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
+}
+
+.menu {
+  min-width: 18rem;
+}
+
+.menu__logo {
+  width: 11rem;
+  margin-top: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.menu__items {
+  list-style: none;
+  font-size: 1.6rem;
+}
+
+.menu__item {
+  margin-bottom: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.menu__item-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.8rem;
+}
+
+.menu__items__link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.menu__items--active {
+  color: rgb(0, 60, 255);
+}
+
+.content {
+  background-color: rgb(227, 230, 232);
+  border-radius: 2.4rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.math-calc {
+  background: rgb(227, 230, 232);
+  box-shadow: 4px -4px 8px 4px rgba(255, 255, 255, 0.6),
+    -4px 6px 12px 4px rgba(0, 0, 0, 0.12),
+    inset -6px 6px 20px 2px rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  margin-left: 5.8rem;
+}
+
+.math-info {
+  margin-left: 4.2rem;
+  margin-right: 4.2rem;
+}
+
+.math-info__header {
+  font-size: 36px;
+  margin-bottom: 3.2rem;
+}
+
+.math-info__article {
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+.math-calc__keyboard {
+  padding: 2.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1.4rem;
+}
+
+.math-calc__screen {
+  max-width: 32.2rem;
+  height: 17rem;
+  padding: 2.8rem;
+  font-size: 4.8rem;
+  font-weight: 200;
+  text-align: right;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.math-calc__screen__sub {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.btn {
+  width: 5.6rem;
+  height: 5.6rem;
+  border: none;
+  font-size: 3.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #67707a;
+  background: #e4e6e8;
+  box-shadow: 4px -4px 8px 4px rgba(255, 255, 255, 0.4),
+    -4px 6px 12px 4px rgba(0, 0, 0, 0.12),
+    inset -6px 6px 20px 2px rgba(0, 0, 0, 0.03);
+  border-radius: 50%;
+}
+
+.btn:hover {
+  background: #e4e6e8;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25),
+    6px -6px 7px rgba(0, 0, 0, 0.05), inset -2px 5px 4px rgba(0, 0, 0, 0.08),
+    inset 0px 2px 0px rgba(0, 0, 0, 0.01);
+}
+
+.operations {
+  color: #58a3ff;
+}
+
+.btn-w {
+  grid-column: 1 / span 2;
+  width: 12.6rem;
+  border-radius: 2.8rem;
+}
+.btn-w2 {
+  grid-column: 1 / span 2;
+  width: 12.6rem;
+  border-radius: 2.8rem;
+}
+
+@media only screen and (max-width: 62rem) {
+  .math-info {
+    display: none;
+  }
+  .math-calc {
+    margin-right: 5.8rem;
+  }
+}
+
+@media only screen and (max-width: 44rem) {
+  .menu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 34rem) {
+  .bg-video {
+    display: none;
+  }
+
+  .content,
+  .main-container,
+  .math-calc {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .bg {
+    background: rgb(227, 230, 232);
+  }
 }
